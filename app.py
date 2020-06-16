@@ -10,6 +10,9 @@ if __name__ == '__main__':
     panthers = []
     warriors = []
     bandits = []
+    panthers_names =[]
+    warriors_names = []
+    bandits_names = []
     num_players_team = len(players) / len(teams)
 
     def clean_data():
@@ -43,27 +46,40 @@ if __name__ == '__main__':
                 if selection == 1:
                     for index, item in enumerate(teams, 1):
                         print(f'{index}. {item}')
-                    #while True:
 
                     select_team = int(input("\nSelect team > "))
-
                     if select_team == 1:
-                            print("Team: ", teams[0], "stats")
-                            print("----------------------")
-                            print("Total players: ", len(panthers), "\n")
-                            print("Players in team:")
-                            for panther in panthers:
-                                print(panther['name'], " ")
+                        team_name = "Panthers"
+                        for player in panthers:
+                            panthers_names.append(player['name'])
+                        print("\nTeam: ", team_name, "Stats")
+                        print("--------------------")
+                        print("Total players: ", len(panthers), "\n")
+                        print("Players on Team:")
+                        print(", ".join(panthers_names),"\n")
                     elif select_team == 2:
-                        print("nr2")
-
+                        team_name = "Warriors"
+                        for player in warriors:
+                            warriors_names.append(player['name'])
+                        print("\nTeam: ", team_name, "Stats")
+                        print("--------------------")
+                        print("Total players: ",len(warriors),"\n")
+                        print("Players on Team:")
+                        print(", ".join(warriors_names),"\n")
                     elif select_team == 3:
-                        print("nr 3")
-                    else:
-                        break
+                        team_name = "Bandits"
+                        for player in bandits:
+                            bandits_names.append(player['name'])
+                        print("\nTeam: ", team_name, "Stats")
+                        print("--------------------")
+                        print("Total players: ", len(bandits), "\n")
+                        print("Players on Team:")
+                        print("\n",", ".join(bandits_names),"\n")
+                elif selection > 2:
+                    print("Entered number is too big! Try again!")
                 else:
-                    print("Tool closed. Thank you for watching!")
-                exit()
+                    print("\nThank you for using this tool!")
+                    exit()
             except ValueError:
-                print("Sorry, select number from selection. Please try again!")
+                print("Sorry, select number from selection. Please try again!\n")
     start_basketball_stats()
