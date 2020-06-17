@@ -1,5 +1,6 @@
 import constants
 import copy
+import random
 
 if __name__ == '__main__':
 
@@ -17,25 +18,24 @@ if __name__ == '__main__':
 
     def clean_data():
         for player in players:
-            player['height'] == int(player['height'] [:2])
+            player['height'] = int(player['height'][:2])
             if player['experience'] == 'YES':
-                player['experience'] == True
+                player['experience'] = True
                 experienced.append(player)
             else:
+                player['experience'] = False
                 unexpierenced.append(player)
     clean_data()
 
-
     def balance_teams(team):
-        team_size = 0;
-        while team_size < num_players_team:
-                team.append(players.pop())
-                team_size += 1
+        while len(experienced) != 0 and len(team) < 3:
+            team.append(experienced.pop(random.randrange(len(experienced))))
+            while len(unexpierenced) != 0 and len(team) < 3:
+                team.append(unexpierenced.pop(random.randrange(len(unexpierenced))))
 
     balance_teams(panthers)
     balance_teams(warriors)
     balance_teams(bandits)
-
 
     def start_basketball_stats():
 
@@ -82,4 +82,5 @@ if __name__ == '__main__':
                     exit()
             except ValueError:
                 print("Sorry, select number from selection. Please try again!\n")
+
     start_basketball_stats()
