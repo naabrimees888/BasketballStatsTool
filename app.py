@@ -30,7 +30,7 @@ if __name__ == '__main__':
     def balance_teams(team):
         while len(experienced) != 0 and len(team) < 3:
             team.append(experienced.pop(random.randrange(len(experienced))))
-            while len(unexpierenced) != 0 and len(team) < 3:
+            while len(unexpierenced) != 0 and len(team) < 6:
                 team.append(unexpierenced.pop(random.randrange(len(unexpierenced))))
 
     balance_teams(panthers)
