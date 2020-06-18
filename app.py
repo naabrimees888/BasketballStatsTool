@@ -28,7 +28,7 @@ if __name__ == '__main__':
     clean_data()
 
     def balance_teams(team):
-        while len(experienced) != 0 and len(team) < 3:
+        while len(experienced) != 0 and len(team) < 6:
             team.append(experienced.pop(random.randrange(len(experienced))))
             while len(unexpierenced) != 0 and len(team) < 6:
                 team.append(unexpierenced.pop(random.randrange(len(unexpierenced))))
@@ -50,17 +50,19 @@ if __name__ == '__main__':
                     select_team = int(input("\nSelect team > "))
                     if select_team == 1:
                         team_name = "Panthers"
-                        for player in panthers:
-                            panthers_names.append(player['name'])
+                        if len(panthers_names) < 6:
+                            for player in panthers:
+                                panthers_names.append(player['name'])
                         print("\nTeam: ", team_name, "Stats")
                         print("--------------------")
                         print("Total players: ", len(panthers), "\n")
                         print("Players on Team:")
-                        print(", ".join(panthers_names),"\n")
+                        print(", ".join(panthers_names), "\n")
                     elif select_team == 2:
                         team_name = "Warriors"
-                        for player in warriors:
-                            warriors_names.append(player['name'])
+                        if len(warriors_names) < 6:
+                            for player in warriors:
+                                warriors_names.append(player['name'])
                         print("\nTeam: ", team_name, "Stats")
                         print("--------------------")
                         print("Total players: ",len(warriors),"\n")
@@ -68,8 +70,9 @@ if __name__ == '__main__':
                         print(", ".join(warriors_names),"\n")
                     elif select_team == 3:
                         team_name = "Bandits"
-                        for player in bandits:
-                            bandits_names.append(player['name'])
+                        if len(bandits_names) < 6:
+                            for player in bandits:
+                                bandits_names.append(player['name'])
                         print("\nTeam: ", team_name, "Stats")
                         print("--------------------")
                         print("Total players: ", len(bandits), "\n")
